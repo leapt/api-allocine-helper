@@ -122,3 +122,6 @@ Next, it's advisable to do requests in an `try{} catch(){}` block for handling e
 ?>
 ```
 
+## History
+
+This package is a maintained fork of the [etienne-gauvin/api-allocine-helper](https://github.com/etienne-gauvin/api-allocine-helper) package.
