@@ -234,14 +234,10 @@
             ));
             $params = $this->getPresets();
             $params['filter'] = isset($params['filter']) ? implode(",", $params['filter']) : null;
+            $params['sed'] = date('Ymd');
+            $params['sig'] = base64_encode(sha1(basename($type) . http_build_query($params) . $this->allocineSecretKey, true));;
 
-            $queryURL = $this->APIUrl . '/' . $type;
-                  $searchQuery = str_replace('%2B', '+', http_build_query($params)) . '&sed=' . date('Ymd');
-                  $toEncrypt = $this->allocineSecretKey . $searchQuery;
-                  $sig = urlencode(base64_encode(sha1($toEncrypt, true)));
-                  $queryURL .= '?' . $searchQuery . '&sig=' . $sig;
-            
-                  return $queryURL;
+            return $this->APIUrl . '/' . $type . '?' . http_build_query($params);
         }
         
         
