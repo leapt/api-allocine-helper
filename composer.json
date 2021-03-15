@@ -3,7 +3,7 @@
     "description": "An easy way to use the Allocine API",
     "type": "library",
     "homepage": "https://github.com/leapt/api-allocine-helper",
-    "license": "CC-BY-SA",
+    "license": "CC-BY-SA-3.0",
     "authors": [
         {
             "name": "Etienne Gauvin",
