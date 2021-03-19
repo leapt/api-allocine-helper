@@ -19,10 +19,10 @@ final class Movie
     public int $productionYear;
     public array $nationalities;
     public array $genres;
-    public int $runtime;
+    public ?int $runtime;
     public array $shortCastingDirectors;
     public array $shortCastingActors;
-    public string $trailerEmbed;
+    public ?string $trailerEmbed;
     public ?float $pressRating;
     public ?float $userRating;
 
@@ -39,10 +39,10 @@ final class Movie
         $this->productionYear = $data['productionYear'];
         $this->nationalities = array_map(fn (array $nationality) => $nationality['$'], $data['nationality']);
         $this->genres = array_map(fn (array $genre) => $genre['$'], $data['genre']);
-        $this->runtime = $data['runtime'];
+        $this->runtime = $data['runtime'] ?? null;
         $this->shortCastingDirectors = explode(', ', $data['castingShort']['directors']);
         $this->shortCastingActors = explode(', ' , $data['castingShort']['actors']);
-        $this->trailerEmbed = $data['trailerEmbed'];
+        $this->trailerEmbed = $data['trailerEmbed'] ?? null;
         $this->pressRating = $data['statistics']['pressRating'] ?? null;
         $this->userRating = $data['statistics']['userRating'] ?? null;
     }
